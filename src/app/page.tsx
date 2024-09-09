@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import Offers from "@/components/offers";
@@ -7,14 +7,12 @@ import RecommendedLodges from "@/components/section-recommended-lodges";
 import SearchBar from "@/components/search-bar";
 
 export default function Home() {
-  const arrayLodgeTypes = ([] = Array(8));
-
   return (
     <>
       <Navbar />
       <Container maxWidth="lg">
         <Hero />
-        <SearchBar/> 
+        <SearchBar />
         <Box
           component={"main"}
           mt={3}
@@ -26,7 +24,8 @@ export default function Home() {
         >
           <Offers />
           <LodgeTypes />
-          
+
+          <RecommendedLodges />
           <RecommendedLodges />
         </Box>
       </Container>

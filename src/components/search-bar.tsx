@@ -3,10 +3,10 @@
 import { initialLodgesProps } from "@/content/content-lodges";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import {
-  Autocomplete,
+  // Autocomplete,
   Box,
   InputAdornment,
-  InputLabel,
+  // InputLabel,
   Stack,
   Tab,
   Tabs,
@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import { useState } from "react";
-import { styleText } from "util";
 
 const SearchBar = () => {
   const [isDestinationFocused, setIsDestinationFocused] = useState(false);
@@ -23,8 +22,11 @@ const SearchBar = () => {
   return (
     <Stack
       direction={"column"}
+      spacing={1}
       sx={{
         width: "100%",
+        // position: "sticky",
+        // top: "0",
       }}
     >
       <Box
@@ -57,7 +59,7 @@ const SearchBar = () => {
                   icon={"solar:buildings-3-bold-duotone"}
                   color="#005B7F"
                 />
-                <Typography color="#212B36" fontWeight={"bold"}>
+                <Typography color="#212B36" variant="subtitle1">
                   Alojamiento
                 </Typography>
               </Stack>
@@ -81,7 +83,7 @@ const SearchBar = () => {
                   icon={"solar:bus-bold-duotone"}
                   color="#005B7F"
                 />
-                <Typography color="#212B36" fontWeight={"bold"}>
+                <Typography color="#212B36" variant="subtitle1">
                   Traslados
                 </Typography>
               </Stack>
@@ -105,7 +107,7 @@ const SearchBar = () => {
                   icon={"solar:compass-big-bold-duotone"}
                   color="#005B7F"
                 />
-                <Typography color="#212B36" fontWeight={"bold"}>
+                <Typography color="#212B36" variant="subtitle1">
                   Experiencias
                 </Typography>
               </Stack>
@@ -129,7 +131,7 @@ const SearchBar = () => {
                   icon={"solar:star-bold-duotone"}
                   color="#005B7F"
                 />
-                <Typography color="#212B36" fontWeight={"bold"}>
+                <Typography color="#212B36" variant="subtitle1">
                   Servicios diversos
                 </Typography>
               </Stack>

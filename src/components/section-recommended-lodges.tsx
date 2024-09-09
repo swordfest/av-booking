@@ -45,7 +45,9 @@ const RecommendedLodges = () => {
           <IconButton
             title="Arrow Left"
             children={
-              <Icon icon={"solar:alt-arrow-left-linear"} color="black" />
+              <Icon icon={"solar:alt-arrow-left-linear"} color="black" style={{
+                
+              }} />
             }
             onClick={handleClickLeft}
             size="small"
