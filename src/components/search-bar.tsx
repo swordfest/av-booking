@@ -6,14 +6,16 @@ import {
   Autocomplete,
   Box,
   InputAdornment,
+  InputLabel,
   Stack,
   Tab,
   Tabs,
   TextField,
   Typography,
 } from "@mui/material";
-import { DatePicker } from '@mui/x-date-pickers';
+import { DatePicker } from "@mui/x-date-pickers";
 import { useState } from "react";
+import { styleText } from "util";
 
 const SearchBar = () => {
   const [isDestinationFocused, setIsDestinationFocused] = useState(false);
@@ -138,7 +140,7 @@ const SearchBar = () => {
       <Box
         sx={{
           width: "100%",
-          height: {xs: "auto", md: "64px"},
+          height: { xs: "auto", md: "64px" },
           bgcolor: "#FFFFFF",
           borderRadius: "1rem",
           display: "flex",
@@ -179,7 +181,36 @@ const SearchBar = () => {
             }}
           />
           {/* <SingleInputDateRangeField label="Departure - Return" /> */}
-          <DatePicker />
+          <DatePicker
+            onChange={() => setDestinationValue("aaa")}
+            label={
+              isDestinationFocused || destinationValue ? "" : "Fecha de salida"
+            }
+            slotProps={{
+              textField: {
+                InputProps: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <Icon
+                        width={24}
+                        icon={"solar:compass-big-bold-duotone"}
+                        color="#005B7F"
+                      />
+                    </InputAdornment>
+                  ),
+                },
+                InputLabelProps: {
+                  shrink: false,
+                  style: { paddingLeft: "2rem" },
+                },
+              },
+            }}
+            sx={{
+              "& fieldset": {
+                border: "none",
+              },
+            }}
+          />
         </Stack>
       </Box>
     </Stack>
