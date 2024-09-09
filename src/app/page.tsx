@@ -1,23 +1,35 @@
-import Image from "next/image";
-import { Container, Stack } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
+import Navbar from "@/components/navbar";
+import Hero from "@/components/hero";
+import Offers from "@/components/offers";
+import LodgeTypes from "@/components/section-lodge-types";
+import RecommendedLodges from "@/components/section-recommended-lodges";
+import SearchBar from "@/components/search-bar";
 
 export default function Home() {
+  const arrayLodgeTypes = ([] = Array(8));
+
   return (
-    <Container maxWidth="lg" sx={{
-      bgcolor: '#e2e2e2',
-      height: '30vh',
-    }}>
-      
-      <Stack direction="row" sx={{
-        relative: 'true',
-        width: '100%',
-        height: '20vh',
-        bgcolor: '#31a8ff',
-        justifyContent:'center',
-        alignItems: 'center',
-      }}>
-        <Image fill src="/images/logo.png" alt="Logo" />
-      </Stack>
-    </Container>
+    <>
+      <Navbar />
+      <Container maxWidth="lg">
+        <Hero />
+        <SearchBar/> 
+        <Box
+          component={"main"}
+          mt={3}
+          gap={4}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Offers />
+          <LodgeTypes />
+          
+          <RecommendedLodges />
+        </Box>
+      </Container>
+    </>
   );
 }
