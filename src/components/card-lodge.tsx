@@ -62,12 +62,12 @@ const CardLodge = (props: lodgeProps) => {
           }}
         />
       </Box>
-      <Stack direction={"column"} gap={"2px"}>
-        <Typography variant="subtitle2" color="#005B7F">
+      <Stack direction={"column"}>
+        <Typography variant="subtitle1" fontWeight={"bold"} color="#005B7F">
           {props.name}
         </Typography>
-        <Typography variant="body1">
-          Desde <span style={{fontWeight: "bold"}}>{props.price}</span>
+        <Typography variant="caption" sx={{textTransform: "uppercase"}}>
+          Desde <span  style={{fontSize: "1rem",fontWeight: "bold"}}>{props.price}</span>
         </Typography>
       </Stack>
     </Box>

@@ -5,6 +5,7 @@ import Offers from "@/components/offers";
 import LodgeTypes from "@/components/section-lodge-types";
 import RecommendedLodges from "@/components/section-recommended-lodges";
 import SearchBar from "@/components/search-bar";
+import Finder from "@/components/finder";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
             flexDirection: "column",
           }}
         >
+          <Finder/>
           <Offers />
           <LodgeTypes />
 

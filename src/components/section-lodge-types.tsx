@@ -1,11 +1,8 @@
 "use client";
-import useScrollOnDragHorz from "@/lib/useScrollOnDragHorz";
-import { Box, Button, IconButton, Slide, Stack } from "@mui/material";
-import { useRef, useState } from "react";
+import { Box, IconButton, Stack } from "@mui/material";
+import { useRef } from "react";
 import CardLodgeType from "./card-lodge-type";
 import { initialCategoryProps } from "@/content/content-lodge-categories";
-import Link from "next/link";
-import { Carousel } from "react-responsive-carousel";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 const LodgeTypes = () => {
@@ -32,7 +29,6 @@ const LodgeTypes = () => {
       >
         <IconButton
           title="Arrow Left"
-          children={<Icon icon={"solar:alt-arrow-left-linear"} color="black" />}
           onClick={handleClickLeft}
           sx={{
             position: "absolute",
@@ -51,11 +47,10 @@ const LodgeTypes = () => {
             alignItems: "center",
             zIndex: 2,
           }}
-        />
+        >
+          <Icon icon={"solar:alt-arrow-left-linear"} color="black" />
+        </IconButton>
         <IconButton
-          children={
-            <Icon icon={"solar:alt-arrow-right-linear"} color="black" />
-          }
           onClick={handleClickRight}
           title="Arrow Right"
           sx={{
@@ -75,9 +70,10 @@ const LodgeTypes = () => {
             alignItems: "center",
             zIndex: 2,
           }}
-        />
+        >
+          <Icon icon={"solar:alt-arrow-right-linear"} color="black" />
+        </IconButton>
         <Stack
-          // {...events}
           ref={stackRef}
           direction={"row"}
           spacing={2}
@@ -85,7 +81,7 @@ const LodgeTypes = () => {
             overflowX: "auto",
             scrollSnapType: { xs: "none", md: "x" },
             scrollBehavior: "smooth",
-            scrollSnapAlign: "center",
+            scrollSnapAlign: "start",
             "&::-webkit-scrollbar": {
               display: "none",
             },

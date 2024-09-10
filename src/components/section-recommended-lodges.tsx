@@ -1,6 +1,5 @@
 "use client";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
-import useScrollOnDragHorz from "@/lib/useScrollOnDragHorz";
 import { useRef } from "react";
 import { initialLodgesProps } from "@/content/content-lodges";
 import CardLodge from "./card-lodge";
@@ -12,12 +11,12 @@ const RecommendedLodges = () => {
 
   const handleClickLeft = () => {
     if (stackRef.current) {
-      stackRef.current.scrollLeft -= 225;
+      stackRef.current.scrollLeft -= 276;
     }
   };
   const handleClickRight = () => {
     if (stackRef.current) {
-      stackRef.current.scrollLeft += 225;
+      stackRef.current.scrollLeft += 276;
     }
   };
   return (
@@ -36,7 +35,9 @@ const RecommendedLodges = () => {
         }}
       >
         <Stack direction="column">
-          <Typography variant="h4" fontWeight={"700"}>Alojamientos recomendados</Typography>
+          <Typography variant="h4" fontWeight={"700"}>
+            Alojamientos recomendados
+          </Typography>
           <Typography variant="body1">
             Basado en tus preferencias y localización
           </Typography>
@@ -44,11 +45,6 @@ const RecommendedLodges = () => {
         <Stack direction={"row"} borderRadius={2} overflow={"hidden"}>
           <IconButton
             title="Arrow Left"
-            children={
-              <Icon icon={"solar:alt-arrow-left-linear"} color="black" style={{
-                
-              }} />
-            }
             onClick={handleClickLeft}
             size="small"
             sx={{
@@ -56,8 +52,10 @@ const RecommendedLodges = () => {
               width: "40px",
               height: "40px",
               bgcolor: "white",
+              color: "black",
               "&:hover": {
                 bgcolor: "#009FA3",
+                color: "white",
               },
               borderRadius: "0px",
               display: "flex",
@@ -65,21 +63,22 @@ const RecommendedLodges = () => {
               alignItems: "center",
               zIndex: 2,
             }}
-          />
+          >
+            <Icon icon={"solar:alt-arrow-left-linear"} />
+          </IconButton>
           <IconButton
             onClick={handleClickRight}
             title="Arrow Right"
-            children={
-              <Icon icon={"solar:alt-arrow-right-linear"} color="black" />
-            }
             size="small"
             sx={{
               visibility: { xs: "hidden", md: "visible" },
               width: "40px",
               height: "40px",
               bgcolor: "white",
+              color: "black",
               "&:hover": {
-                bgcolor: "white",
+                bgcolor: "#009FA3",
+                color: "white",
               },
               borderRadius: "0px",
               display: "flex",
@@ -87,7 +86,9 @@ const RecommendedLodges = () => {
               alignItems: "center",
               zIndex: 2,
             }}
-          />
+          >
+            <Icon icon={"solar:alt-arrow-right-linear"} />
+          </IconButton>
         </Stack>
       </Stack>
       <Stack
@@ -98,7 +99,7 @@ const RecommendedLodges = () => {
           overflowX: "auto",
           scrollSnapType: { xs: "none", md: "x" },
           scrollBehavior: "smooth",
-          scrollSnapAlign: "center",
+          scrollSnapAlign: "start",
           "&::-webkit-scrollbar": {
             display: "none",
           },
