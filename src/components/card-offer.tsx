@@ -26,7 +26,7 @@ const CardOffer = (props: OfferProps) => {
         >
           <Stack direction={"column"} p={2} gap={1}>
             <Stack direction={"column"}>
-              <Typography variant="h5">{props?.title}</Typography>
+              <Typography variant="h5" fontWeight={"700"}>{props?.title}</Typography>
               <Typography
                 variant="body1"
                 color="secondary"
@@ -76,7 +76,7 @@ const CardOffer = (props: OfferProps) => {
         >
           <Stack direction={"column"} p={2} gap={1}>
             <Stack direction={"column"}>
-              <Typography variant="h5" color="white">
+              <Typography variant="h5" color="white" fontWeight={"700"}>
                 {props?.title}
               </Typography>
               <Typography

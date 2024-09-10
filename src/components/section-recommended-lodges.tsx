@@ -36,7 +36,7 @@ const RecommendedLodges = () => {
         }}
       >
         <Stack direction="column">
-          <Typography variant="h4">Alojamientos recomendados</Typography>
+          <Typography variant="h4" fontWeight={"700"}>Alojamientos recomendados</Typography>
           <Typography variant="body1">
             Basado en tus preferencias y localización
           </Typography>

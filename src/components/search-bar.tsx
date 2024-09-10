@@ -5,7 +5,11 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import {
   // Autocomplete,
   Box,
+  Divider,
   InputAdornment,
+  Menu,
+  MenuItem,
+  Paper,
   // InputLabel,
   Stack,
   Tab,
@@ -14,11 +18,38 @@ import {
   Typography,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
+import React, { useRef } from "react";
 import { useState } from "react";
+import { makeStyles } from "@mui/styles";
+
+// const useStyles = makeStyles({
+//   tabIndicator: {
+//     backgroundColor: "#111111", // Your custom color here!
+//   },
+// });
 
 const SearchBar = () => {
   const [isDestinationFocused, setIsDestinationFocused] = useState(false);
   const [destinationValue, setDestinationValue] = useState("");
+  const searchFieldRef = useRef<HTMLInputElement>(null);
+
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+    if (searchFieldRef.current) {
+      searchFieldRef.current.focus();
+      console.log("Aqui ha funcionao esta validacion"); // focus the text field when it's mounted
+    }
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  //   const classes = useStyles();
+
   return (
     <Stack
       direction={"column"}
@@ -40,10 +71,18 @@ const SearchBar = () => {
             "linear-gradient(90deg, rgba(255, 255, 255, 0.00) 0%, #FFF 49.86%, rgba(255, 255, 255, 0.00) 100%);",
         }}
       >
-        <Tabs variant="scrollable">
+        <Tabs
+          value={0}
+          classes={{}}
+          TabIndicatorProps={{ sx: { backgroundColor: "#005B7F" } }}
+          variant="scrollable"
+        >
           <Tab
+            value={0}
             sx={{
               textTransform: "none",
+              paddingX: "0px",
+              marginX: "16px",
             }}
             label={
               <Stack
@@ -66,8 +105,11 @@ const SearchBar = () => {
             }
           />
           <Tab
+            value={1}
             sx={{
               textTransform: "none",
+              paddingX: "0px",
+              marginX: "16px",
             }}
             label={
               <Stack
@@ -90,8 +132,11 @@ const SearchBar = () => {
             }
           />
           <Tab
+            value={2}
             sx={{
               textTransform: "none",
+              paddingX: "0px",
+              marginX: "16px",
             }}
             label={
               <Stack
@@ -114,8 +159,11 @@ const SearchBar = () => {
             }
           />
           <Tab
+            value={3}
             sx={{
               textTransform: "none",
+              paddingX: "0px",
+              marginX: "16px",
             }}
             label={
               <Stack
@@ -150,38 +198,67 @@ const SearchBar = () => {
         }}
       >
         <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
-          <TextField
-            onFocus={() => setIsDestinationFocused(true)}
-            onBlur={() => setIsDestinationFocused(false)}
-            variant="outlined"
-            slotProps={{
-              inputLabel: { shrink: false, style: { paddingLeft: "2rem" } },
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Icon
-                      width={24}
-                      icon={"solar:compass-big-bold-duotone"}
-                      color="#005B7F"
-                    />
-                  </InputAdornment>
-                ),
-              },
-            }}
-            {...initialLodgesProps}
-            onChange={(event) => setDestinationValue(event.target.value)}
-            label={
-              isDestinationFocused || destinationValue
-                ? ""
-                : "¿Cuál es tu destino?"
-            }
-            fullWidth
-            sx={{
-              "& fieldset": {
-                border: "none",
-              },
-            }}
-          />
+          <Box>
+            <TextField
+              aria-controls={open ? "demo-positioned-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+              variant="outlined"
+              slotProps={{
+                inputLabel: { shrink: false, style: { paddingLeft: "2rem" } },
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <Icon
+                        width={24}
+                        icon={"solar:compass-big-bold-duotone"}
+                        color="#005B7F"
+                      />
+                    </InputAdornment>
+                  ),
+                },
+              }}
+              {...initialLodgesProps}
+              onChange={(event) => setDestinationValue(event.target.value)}
+              label={
+                isDestinationFocused || destinationValue
+                  ? ""
+                  : "¿Cuál es tu destino?"
+              }
+              fullWidth
+              sx={{
+                "& fieldset": {
+                  border: "none",
+                },
+              }}
+            />
+            <Menu
+              id="demo-positioned-menu"
+              aria-labelledby="demo-positioned-button"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              slotProps={{ paper: { style: { width: 300, padding: "1rem" } } }}
+            >
+              <TextField inputRef={searchFieldRef} sx={{}} fullWidth>
+                ¿Cuál es tu destino?
+              </TextField>
+              <Divider />
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem onClick={handleClose}>My account</MenuItem>
+              <MenuItem onClick={handleClose}>Logout</MenuItem>
+            </Menu>
+          </Box>
+
           {/* <SingleInputDateRangeField label="Departure - Return" /> */}
           <DatePicker
             onChange={() => setDestinationValue("aaa")}

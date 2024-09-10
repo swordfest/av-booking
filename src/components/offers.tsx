@@ -12,7 +12,7 @@ import { cardOne, cardTwo } from "@/content/content-offer";
       gap={2}
     >
       <Stack direction={"column"}>
-        <Typography variant="h4">Ofertas</Typography>
+        <Typography variant="h4" fontWeight={"700"}>Ofertas</Typography>
         <Typography variant="body1">Promociones y ofertas para ti</Typography>
       </Stack>
       <Stack maxWidth={"lg"} direction={{ md: "row", lg: "row" }} gap={2}>
