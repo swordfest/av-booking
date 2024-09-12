@@ -1,7 +1,7 @@
 "use client";
-import { Box, Card, Chip, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import { Icon } from "@iconify/react";
+// import { Icon } from "@iconify/react";
 import ChipRate from "./chip-rate";
 import { useState } from "react";
 

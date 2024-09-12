@@ -1,8 +1,13 @@
-'use client'
+"use client";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { ReactNode } from "react";
 
-const Providers = ({ children }: any) => {
+interface Props {
+  children: ReactNode;
+}
+
+const Providers = ({ children }: Props) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       {children}

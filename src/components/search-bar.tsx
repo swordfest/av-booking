@@ -10,10 +10,10 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
-import React, { EventHandler, SyntheticEvent, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { DatePicker } from "@mui/x-date-pickers";
-import { debounce } from "lodash";
-import { lodgeProps } from "./card-lodge";
+// import { debounce } from "lodash";
+// import { lodgeProps } from "./card-lodge";
 
 interface barProps {
   barVariant?: number;
@@ -40,15 +40,15 @@ const SearchBar = ({ barVariant }: barProps) => {
     searchFieldRef.current?.focus();
   };
 
-  const search = (criteria: string) => {
-    return initialLodgesProps.filter((lodge) => lodge.name === criteria);
-  }
+  // const search = (criteria: string) => {
+  //   return initialLodgesProps.filter((lodge) => lodge.name === criteria);
+  // }
 
-  const debouncedSearch = useRef(
-    debounce((value) => {
-      setFieldValue(search(value));
-    }, 300)
-  ).current;
+  // const debouncedSearch = useRef(
+  //   debounce((value) => {
+  //     setFieldValue(search(value));
+  //   }, 300)
+  // ).current;
 
   
 

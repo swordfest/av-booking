@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import CardOffer from "@/components/card-offer";
 import { cardOne, cardTwo } from "@/content/content-offer";
 
