@@ -16,26 +16,39 @@ const Hero = () => {
   return (
     <Box
       component={"section"}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       title="banner"
       pt={4}
       pb={1}
       sx={{
         position: "relative",
-        width: "100%",
+        maxWidth: "100%",
         height: "auto",
         display: "flex",
+        margin: "auto auto",
+        transformOrigin: "center center",
+        transform: "scale(1)",
+        transition: "all 0.6s ease",
+        "&:hover": {
+          maxWidth: "98%",
+          transformOrigin: "center center",
+          transform: "scale(0.99)",
+          transition: "all 0.6s ease",
+        },
+        cursor: "pointer",
       }}
     >
       <Stack
         direction={{ xs: "row", md: "column" }}
         alignItems={"center"}
-        spacing={{ xs: '8vw', md: 2 }}
+        spacing={{ xs: "8vw", md: 2 }}
         sx={{
           zIndex: 3,
           position: "absolute",
           top: { xs: "8%", md: "25%" },
           left: "40px",
-          }}
+        }}
       >
         <Box
           sx={{
@@ -48,8 +61,6 @@ const Hero = () => {
         </Box>
         <Button
           variant={"text"}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
           disableElevation
           fullWidth={false}
           endIcon={
@@ -79,27 +90,29 @@ const Hero = () => {
           </Typography>
         </Button>
       </Stack>
-        <IconButton
-          title="Arrow Right"
-          children={<Icon icon={"solar:arrow-right-linear"} color="black" />}
-          sx={{
-            position: "absolute",
-            visibility: { xs: "visible", md: "hidden" },
-            width: "40px",
-            height: "40px",
-            bgcolor: "#FFD644",
-            "&:hover": {
-              bgcolor: "white",
-            },
-            top: "45%",
-            right: "40px",
-            borderRadius: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 2,
-          }}
-        />
+      <IconButton
+        title="Arrow Right"
+        sx={{
+          position: "absolute",
+          visibility: { xs: "visible", md: "hidden" },
+          width: "40px",
+          height: "40px",
+          bgcolor: "#FFD644",
+          "&:hover": {
+            bgcolor: "white",
+          },
+          top: "45%",
+          right: "40px",
+          borderRadius: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          zIndex: 2,
+        }}
+      >
+        <Icon icon={"solar:arrow-right-linear"} color="black" />
+      </IconButton>
+
       <Box
         maxWidth={"lg"}
         width={"100%"}
@@ -115,6 +128,7 @@ const Hero = () => {
           objectFit="cover"
           src="/assets/images/banner.png"
           alt="Banner"
+          style={{}}
         />
       </Box>
     </Box>
