@@ -23,8 +23,8 @@ const Finder = () => {
       spacing={1}
       sx={{
         width: "100%",
-        // position: "sticky",
-        // top: "0",
+        position: "sticky",
+        top: "0px",
       }}
     >
       <ProductsTabs tabValue={tabValue} setTabValue={setTabValue} />

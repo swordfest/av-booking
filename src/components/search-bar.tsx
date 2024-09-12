@@ -22,8 +22,8 @@ interface barProps {
 const SearchBar = ({ barVariant }: barProps) => {
   // const [destinationValue, setDestinationValue] = useState("");
   const searchFieldRef = useRef<HTMLInputElement>(null);
-  const [fieldValue, setFieldValue] = useState<lodgeProps[]>([]);
-  // const [fieldValue, setFieldValue] = useState("");
+  // const [fieldValue, setFieldValue] = useState<lodgeProps[]>([]);
+  const [fieldValue, setFieldValue] = useState("");
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -40,7 +40,7 @@ const SearchBar = ({ barVariant }: barProps) => {
     searchFieldRef.current?.focus();
   };
 
-  const search = (criteria: string): lodgeProps[] => {
+  const search = (criteria: string) => {
     return initialLodgesProps.filter((lodge) => lodge.name === criteria);
   }
 
@@ -53,7 +53,8 @@ const SearchBar = ({ barVariant }: barProps) => {
   
 
   const handleMenuChange = (item: string) => {
-    debouncedSearch(item);
+    // debouncedSearch(item);
+    setFieldValue(item);
   };
 
   switch (barVariant) {
@@ -70,7 +71,7 @@ const SearchBar = ({ barVariant }: barProps) => {
           }}
         >
           <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
-            <Box bgcolor={"gray"} position={"relative"}>
+            <Box position={"relative"}>
               <TextField
                 aria-controls={open ? "destination-menu" : undefined}
                 aria-haspopup="true"
