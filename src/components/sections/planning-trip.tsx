@@ -8,12 +8,12 @@ import { _planningTrips } from "@/_mock/_planning";
 const PlanningTrips = () => {
   const stackRef =
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
-  const [categories, setCategories] = useState<string[]>(
+  const [categories] = useState<string[]>(
     _planningTrips.map((item) => item.category)
   );
-  const uniqueCategories = categories.filter(
-    (item, index) => categories.indexOf(item) === index
-  );
+  // const uniqueCategories = categories.filter(
+  //   (item, index) => categories.indexOf(item) === index
+  // );
 
   const [tab, setTab] = useState("romance");
 
@@ -266,7 +266,7 @@ const PlanningTrips = () => {
         }}
       >
         {_planningTrips
-          .filter((item, index) => item.category == tab)
+          .filter((item) => item.category == tab)
           .map((trip, index) => (
             <CardPlanningTrip {...trip} key={index} />
           ))}

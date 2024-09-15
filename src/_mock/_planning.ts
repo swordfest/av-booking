@@ -1,7 +1,4 @@
-import {
-  PlanningTrip,
-  PlanningTripCategory,
-} from "@/types/trips/planning-trip-type";
+import { PlanningTrip } from "@/types/trips/planning-trip-type";
 
 export const _planningTrips: PlanningTrip[] = [
   {

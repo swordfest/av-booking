@@ -6,7 +6,6 @@ import LodgeTypes from "@/components/sections/lodge-types";
 import RecommendedLodges from "@/components/sections/recommended-lodges";
 import Finder from "@/components/finder/finder";
 import PlanningTrips from "@/components/sections/planning-trip";
-import HeroDos from "@/components/sections/hero-2";
 import Articles from "@/components/sections/articles";
 import Footer from "@/components/sections/footer";
 
