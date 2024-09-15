@@ -8,9 +8,9 @@ import { _planningTrips } from "@/_mock/_planning";
 const PlanningTrips = () => {
   const stackRef =
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
-  const [categories] = useState<string[]>(
-    _planningTrips.map((item) => item.category)
-  );
+  // const [categories] = useState<string[]>(
+  //   _planningTrips.map((item) => item.category)
+  // );
   // const uniqueCategories = categories.filter(
   //   (item, index) => categories.indexOf(item) === index
   // );

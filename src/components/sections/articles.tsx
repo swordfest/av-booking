@@ -32,8 +32,9 @@ const Articles = () => {
           bgcolor: "rgba(255, 255, 255, 70%)",
           backdropFilter: "blur(16px)",
           borderRadius: 2,
-          alignSelf: "end",
-          justifySelf: "start",
+          // alignSelf: "end",
+          // justifySelf: "start",
+          placeSelf: "end start",
           inset: "-2rem 2rem",
           position: "relative",
         }}
