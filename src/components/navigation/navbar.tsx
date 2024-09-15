@@ -7,7 +7,7 @@ import {
   Button,
   IconButton,
 } from "@mui/material";
-import Logo from "./logo";
+import Logo from "../logo";
 
 const Navbar = () => {
   return (
@@ -19,6 +19,7 @@ const Navbar = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        borderBottom: "1px solid #E5E5E5",
       }}
     >
       <Container

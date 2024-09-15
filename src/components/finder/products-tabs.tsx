@@ -1,22 +1,23 @@
+import { BarVariant } from "@/types/finder/search-bar-type";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Box, Stack, Tab, Tabs, Typography } from "@mui/material";
 import { SyntheticEvent } from "react";
 
-interface propsProductsTabs {
-  tabValue: number;
-  setTabValue: React.Dispatch<React.SetStateAction<number>>;
+interface Props {
+  tabValue: BarVariant;
+  setTabValue: React.Dispatch<React.SetStateAction<BarVariant>>;
 }
 
-const ProductsTabs = ({tabValue, setTabValue} : propsProductsTabs) => {
-  const handleChange = (e: SyntheticEvent, value: number) => {
-    setTabValue(value)
+const ProductsTabs = ({ tabValue, setTabValue }: Props) => {
+  const handleChange = (e: SyntheticEvent, value: BarVariant) => {
+    setTabValue(value);
   };
 
   return (
     <Box
       sx={{
         width: "105%",
-        height: "56px",
+        height: "auto",
         display: "flex",
         justifyContent: "center",
         alignItems: "end",
@@ -27,11 +28,13 @@ const ProductsTabs = ({tabValue, setTabValue} : propsProductsTabs) => {
       <Tabs
         value={tabValue}
         onChange={handleChange}
-        TabIndicatorProps={{ sx: { backgroundColor: "#005B7F" } }}
+        TabIndicatorProps={{
+          sx: { backgroundColor: "#005B7F" },
+        }}
         variant="scrollable"
       >
         <Tab
-          value={0}
+          value={"lodge"}
           sx={{
             textTransform: "none",
             paddingX: "0px",
@@ -58,7 +61,7 @@ const ProductsTabs = ({tabValue, setTabValue} : propsProductsTabs) => {
           }
         />
         <Tab
-          value={1}
+          value={"transfer"}
           sx={{
             textTransform: "none",
             paddingX: "0px",
@@ -85,7 +88,7 @@ const ProductsTabs = ({tabValue, setTabValue} : propsProductsTabs) => {
           }
         />
         <Tab
-          value={2}
+          value={"experience"}
           sx={{
             textTransform: "none",
             paddingX: "0px",
@@ -112,7 +115,7 @@ const ProductsTabs = ({tabValue, setTabValue} : propsProductsTabs) => {
           }
         />
         <Tab
-          value={3}
+          value={"mixed"}
           sx={{
             textTransform: "none",
             paddingX: "0px",

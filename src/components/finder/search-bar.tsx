@@ -1,5 +1,5 @@
 "use client";
-import { initialLodgesProps } from "@/content/content-lodges";
+import { _lodgesList } from "@/_mock/_lodges";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import {
   Box,
@@ -12,18 +12,17 @@ import {
 } from "@mui/material";
 import React, { useRef, useState } from "react";
 import { DatePicker } from "@mui/x-date-pickers";
-// import { debounce } from "lodash";
-// import { lodgeProps } from "./card-lodge";
+import { debounce } from "lodash";
+import { BarVariant } from "@/types/finder/search-bar-type";
+import { LodgeType } from "@/types/lodges/_lodges-type";
 
-interface barProps {
-  barVariant?: number;
+export interface Props {
+  barVariant: BarVariant;
 }
 
-const SearchBar = ({ barVariant }: barProps) => {
-  // const [destinationValue, setDestinationValue] = useState("");
+const SearchBar = ({ barVariant }: Props) => {
   const searchFieldRef = useRef<HTMLInputElement>(null);
-  // const [fieldValue, setFieldValue] = useState<lodgeProps[]>([]);
-  const [fieldValue, setFieldValue] = useState("");
+  const [filterData, setFilterData] = useState<LodgeType[]>(_lodgesList);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -40,25 +39,19 @@ const SearchBar = ({ barVariant }: barProps) => {
     searchFieldRef.current?.focus();
   };
 
-  // const search = (criteria: string) => {
-  //   return initialLodgesProps.filter((lodge) => lodge.name === criteria);
-  // }
-
-  // const debouncedSearch = useRef(
-  //   debounce((value) => {
-  //     setFieldValue(search(value));
-  //   }, 300)
-  // ).current;
-
-  
-
-  const handleMenuChange = (item: string) => {
-    // debouncedSearch(item);
-    setFieldValue(item);
+  const search = (criteria: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("search", criteria.target.value);
+    return _lodgesList.filter((lodge) =>
+      lodge.name.toLowerCase().startsWith(criteria.target.value.toLowerCase())
+    );
   };
 
+  const handleMenuChange = debounce((value) => {
+    setFilterData(search(value));
+  }, 300);
+
   switch (barVariant) {
-    case 0:
+    case "lodge":
       return (
         <Box
           sx={{
@@ -78,23 +71,23 @@ const SearchBar = ({ barVariant }: barProps) => {
                 aria-expanded={open ? "true" : undefined}
                 onClick={handleClick}
                 onFocus={handleFocus}
-                value={fieldValue[0]}
+                // value={fieldValue[0]}
                 variant="outlined"
                 slotProps={{
                   inputLabel: {
                     shrink: false,
-                    style: { paddingLeft: "2rem" },
+                    sx: { paddingLeft: "2rem" },
                   },
 
                   htmlInput: {
                     // value: fieldValue,
-                    style: {
+                    sx: {
                       cursor: "pointer",
                     },
                   },
                   input: {
-                    value: fieldValue[0],
-                    style: {
+                    // value: fieldValue[0],
+                    sx: {
                       cursor: "pointer",
                     },
                     startAdornment: (
@@ -108,7 +101,7 @@ const SearchBar = ({ barVariant }: barProps) => {
                     ),
                   },
                 }}
-                {...initialLodgesProps}
+                {..._lodgesList}
                 placeholder="¿Cuál es tu destino?"
                 fullWidth
                 sx={{
@@ -123,6 +116,7 @@ const SearchBar = ({ barVariant }: barProps) => {
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
+                autoFocus={false}
                 disableScrollLock
                 anchorOrigin={{
                   vertical: "top",
@@ -147,6 +141,10 @@ const SearchBar = ({ barVariant }: barProps) => {
                 }}
               >
                 <TextField
+                  onKeyDown={(e) => {
+                    e.stopPropagation();
+                  }}
+                  onChange={handleMenuChange}
                   inputRef={searchFieldRef}
                   fullWidth
                   placeholder="¿Cuál es tu destino?"
@@ -168,7 +166,7 @@ const SearchBar = ({ barVariant }: barProps) => {
                   ¿Cuál es tu destino?
                 </TextField>
                 <Divider />
-                {initialLodgesProps.map((lod, index) => (
+                {filterData.map((lod, index) => (
                   <MenuItem
                     key={index}
                     onClick={() => {
@@ -212,7 +210,7 @@ const SearchBar = ({ barVariant }: barProps) => {
           </Stack>
         </Box>
       );
-    case 1:
+    case "transfer":
       return (
         <Box
           sx={{
@@ -247,7 +245,7 @@ const SearchBar = ({ barVariant }: barProps) => {
                     ),
                   },
                 }}
-                {...initialLodgesProps}
+                {..._lodgesList}
                 label={"¿Cuál es tu destino?"}
                 fullWidth
                 sx={{
@@ -289,7 +287,7 @@ const SearchBar = ({ barVariant }: barProps) => {
           </Stack>
         </Box>
       );
-    case 2:
+    case "experience":
       return (
         <Box
           sx={{
@@ -324,7 +322,7 @@ const SearchBar = ({ barVariant }: barProps) => {
                     ),
                   },
                 }}
-                {...initialLodgesProps}
+                {..._lodgesList}
                 label={"¿Cuál es tu destino?"}
                 fullWidth
                 sx={{
@@ -366,7 +364,7 @@ const SearchBar = ({ barVariant }: barProps) => {
           </Stack>
         </Box>
       );
-    case 3:
+    case "mixed":
       return (
         <Box
           sx={{
@@ -401,7 +399,7 @@ const SearchBar = ({ barVariant }: barProps) => {
                     ),
                   },
                 }}
-                {...initialLodgesProps}
+                {..._lodgesList}
                 label={"¿Cuál es tu destino?"}
                 fullWidth
                 sx={{

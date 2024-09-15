@@ -1,7 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
-import CardOffer from "@/components/card-offer";
-import { cardOne, cardTwo } from "@/content/content-offer";
-
+import CardOffer from "@/components/card/card-offer";
+import { cardOne, cardTwo } from "@/_mock/_offers";
  const Offers = () => {
   return (
     <Box

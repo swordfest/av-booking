@@ -3,12 +3,12 @@ import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { useState } from "react";
 
-export interface CardLodgeTypeProps {
+export interface Props {
   imageThumbnail: string;
   categoryName: string;
 }
 
-const CardLodgeType = (props: CardLodgeTypeProps) => {
+const CardLodgeCategory = ({imageThumbnail, categoryName}: Props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -27,25 +27,29 @@ const CardLodgeType = (props: CardLodgeTypeProps) => {
       textTransform={"uppercase"}
       sx={{
         minWidth: "227.2px",
-        width: '100%',
+        width: "100%",
         height: "360px",
         display: "flex",
         alignItems: "end",
         borderRadius: "1rem",
         overflow: "hidden",
-        scrollSnapAlign:"start",
+        scrollSnapAlign: "start",
         position: "relative",
         userSelect: "none",
         cursor: isHovered ? "pointer" : "none",
-        background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) ${isHovered ? '40' : '0'}%, rgba(0, 0, 0, 0.50) 100%)`,
-        transition: "all 0.25s ease-in-out",
-        transitionDuration: "1s",
-
+        transformOrigin: "center center",
+        background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%)`,
+        transition: "all 0.5s ease",
+        "&:hover": {
+          transformOrigin: "center center",
+          background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 20%, rgba(0, 0, 0, 0.50) 100%)`,
+          transition: "all 0.5s ease",
+        },
       }}
     >
       <Image
         fill
-        src={props.imageThumbnail as string}
+        src={imageThumbnail as string}
         alt="thumb"
         style={{
           position: "absolute",
@@ -57,9 +61,9 @@ const CardLodgeType = (props: CardLodgeTypeProps) => {
           transition: "transform 0.25s ease-in-out",
         }}
       />
-      <Typography fontWeight={"bold"}>{props.categoryName}</Typography>
+      <Typography fontWeight={"bold"}>{categoryName}</Typography>
     </Box>
   );
 };
 
-export default CardLodgeType;
+export default CardLodgeCategory;

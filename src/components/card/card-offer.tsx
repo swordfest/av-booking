@@ -1,16 +1,17 @@
+import { OfferCardVariant } from "@/types/offers/_offers-type";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
-export interface OfferProps {
-  title?: string;
+interface Props {
+  title: string;
   description?: string;
   imageURL?: string;
-  variant: string;
+  variant: OfferCardVariant;
 }
 
-const CardOffer = (props: OfferProps) => {
-  switch (props.variant) {
-    case "1":
+const CardOffer = ({ title, description, imageURL, variant }: Props) => {
+  switch (variant) {
+    case "primary":
       return (
         <Box
           minWidth="sm"
@@ -26,7 +27,9 @@ const CardOffer = (props: OfferProps) => {
         >
           <Stack direction={"column"} p={2} gap={1}>
             <Stack direction={"column"}>
-              <Typography variant="h5" fontWeight={"700"}>{props?.title}</Typography>
+              <Typography variant="h5" fontWeight={"700"}>
+                {title}
+              </Typography>
               <Typography
                 variant="body1"
                 color="secondary"
@@ -39,7 +42,7 @@ const CardOffer = (props: OfferProps) => {
                   textOverflow: "ellipsis",
                 }}
               >
-                {props?.description}
+                {description}
               </Typography>
             </Stack>
             <Box minWidth={"10vw"}>
@@ -59,7 +62,7 @@ const CardOffer = (props: OfferProps) => {
           </Stack>
         </Box>
       );
-    case "2":
+    case "secondary":
       return (
         <Box
           minWidth="sm"
@@ -77,7 +80,7 @@ const CardOffer = (props: OfferProps) => {
           <Stack direction={"column"} p={2} gap={1}>
             <Stack direction={"column"}>
               <Typography variant="h5" color="white" fontWeight={"700"}>
-                {props?.title}
+                {title}
               </Typography>
               <Typography
                 variant="body1"
@@ -91,7 +94,7 @@ const CardOffer = (props: OfferProps) => {
                   textOverflow: "ellipsis",
                 }}
               >
-                {props?.description}
+                {description}
               </Typography>
             </Stack>
             <Box minWidth={"10vw"}>
@@ -112,7 +115,7 @@ const CardOffer = (props: OfferProps) => {
           <Image
             fill
             objectFit="cover"
-            src={props?.imageURL as string}
+            src={imageURL as string}
             alt="imagen"
             style={{
               position: "absolute",

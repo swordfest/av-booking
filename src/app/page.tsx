@@ -1,11 +1,14 @@
 import { Box, Container } from "@mui/material";
-import Navbar from "@/components/navbar";
-import Hero from "@/components/hero";
-import Offers from "@/components/offers";
-import LodgeTypes from "@/components/section-lodge-types";
-import RecommendedLodges from "@/components/section-recommended-lodges";
-import SearchBar from "@/components/search-bar";
-import Finder from "@/components/finder";
+import Navbar from "@/components/navigation/navbar";
+import Hero from "@/components/sections/hero";
+import Offers from "@/components/sections/offers";
+import LodgeTypes from "@/components/sections/lodge-types";
+import RecommendedLodges from "@/components/sections/recommended-lodges";
+import Finder from "@/components/finder/finder";
+import PlanningTrips from "@/components/sections/planning-trip";
+import HeroDos from "@/components/sections/hero-2";
+import Articles from "@/components/sections/articles";
+import Footer from "@/components/sections/footer";
 
 export default function Home() {
   return (
@@ -13,24 +16,24 @@ export default function Home() {
       <Navbar />
       <Container maxWidth="lg">
         <Hero />
-        <SearchBar />
         <Box
           component={"main"}
-          mt={3}
+          my={3}
           gap={4}
           sx={{
             display: "flex",
             flexDirection: "column",
           }}
         >
-          <Finder/>
+          <Finder />
           <Offers />
           <LodgeTypes />
-
           <RecommendedLodges />
-          <RecommendedLodges />
+          <PlanningTrips />
+          <Articles />
         </Box>
       </Container>
+      <Footer />
     </>
   );
 }

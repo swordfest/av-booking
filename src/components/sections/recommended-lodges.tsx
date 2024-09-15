@@ -1,8 +1,8 @@
 "use client";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { useRef } from "react";
-import { initialLodgesProps } from "@/content/content-lodges";
-import CardLodge from "./card-lodge";
+import { _lodgesList } from "@/_mock/_lodges";
+import CardLodge from "../card/card-lodge";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 const RecommendedLodges = () => {
@@ -106,7 +106,7 @@ const RecommendedLodges = () => {
           msOverflowStyle: "none",
         }}
       >
-        {initialLodgesProps.map((lod, index) => (
+        {_lodgesList.map((lod, index) => (
           <CardLodge {...lod} key={index} />
         ))}
       </Stack>

@@ -3,19 +3,12 @@
 import { Stack } from "@mui/material";
 import React from "react";
 import { useState } from "react";
-import ProductsTabs from "./products-tabs";
-import SearchBar from "./search-bar";
+import ProductsTabs from "../finder/products-tabs";
+import SearchBar from "../finder/search-bar";
+import { BarVariant } from "@/types/finder/search-bar-type";
 
 const Finder = () => {
-  const [tabValue, setTabValue] = useState(0);
-
-  // const handleSelectedTab = () => {
-  //   setTabValue(newValue)
-  // };
-
-  // const changeSearchBar = (value: any) => {
-  //   setTabValue(value);
-  // };
+  const [tabValue, setTabValue] = useState<BarVariant>("lodge");
 
   return (
     <Stack

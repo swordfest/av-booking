@@ -1,9 +1,9 @@
 "use client";
 import { Box, IconButton, Stack } from "@mui/material";
 import { useRef } from "react";
-import CardLodgeType from "./card-lodge-type";
-import { initialCategoryProps } from "@/content/content-lodge-categories";
+import { _categoryList } from "@/_mock/_lodges";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import CardLodgeCategory from "../card/card-lodge-category";
 
 const LodgeTypes = () => {
   const stackRef =
@@ -88,8 +88,8 @@ const LodgeTypes = () => {
             msOverflowStyle: "none",
           }}
         >
-          {initialCategoryProps.map((cat, index) => (
-            <CardLodgeType {...cat} key={index} />
+          {_categoryList.map((cat, index) => (
+            <CardLodgeCategory {...cat} key={index} />
           ))}
         </Stack>
       </Box>

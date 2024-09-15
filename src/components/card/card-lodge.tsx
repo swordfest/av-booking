@@ -1,21 +1,20 @@
 "use client";
 import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-// import { Icon } from "@iconify/react";
-import ChipRate from "./chip-rate";
+import ChipRate from "../rating/chip-rate";
 import { useState } from "react";
 
-export interface lodgeProps {
+interface Props {
   name: string;
   price: number;
   imageURL: string;
   rate: number;
 }
 
-
-const CardLodge = (props: lodgeProps) => {
+const CardLodge = ({name, price, imageURL, rate}: Props) => {
   const handleClick = () => {
-    alert(`You clicked on ${props.name}`);
+    alert(`You clicked on ${name}`);
+    console.log("You clicked on", name);
   };
   const [isHovered, setIsHovered] = useState(false);
 
@@ -47,10 +46,10 @@ const CardLodge = (props: lodgeProps) => {
           overflow: "hidden",
         }}
       >
-        <ChipRate rate={props.rate} isHovered={isHovered} />
+        <ChipRate rateValue={rate} isHovered={isHovered} />
         <Image
           fill
-          src={props.imageURL}
+          src={imageURL}
           alt="Lodge"
           style={{
             transformOrigin: "center center",
@@ -64,10 +63,13 @@ const CardLodge = (props: lodgeProps) => {
       </Box>
       <Stack direction={"column"}>
         <Typography variant="subtitle1" fontWeight={"bold"} color="#005B7F">
-          {props.name}
+          {name}
         </Typography>
-        <Typography variant="caption" sx={{textTransform: "uppercase"}}>
-          Desde <span  style={{fontSize: "1rem",fontWeight: "bold"}}>{props.price}</span>
+        <Typography variant="caption" sx={{ textTransform: "uppercase" }}>
+          Desde{" "}
+          <span style={{ fontSize: "1rem", fontWeight: "bold" }}>
+            {price}
+          </span>
         </Typography>
       </Stack>
     </Box>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 // import localFont from "next/font/local";
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import Providers from "@/components/providers";
+import Providers from "@/utils/providers";
 import { Public_Sans } from "next/font/google";
 
 // const geistSans = localFont({
