@@ -1,4 +1,4 @@
-import { LodgeCategory, Lodge } from "@/types/lodges/_lodges-type";
+import { LodgeCategory, LodgeType } from "@/types/lodges/_lodges-type";
 
 
 export const _categoryList: LodgeCategory[] = [
@@ -44,7 +44,7 @@ export const _categoryList: LodgeCategory[] = [
   },
 ];
 
-export const _lodgesList: Lodge[] = [
+export const _lodgesList: LodgeType[] = [
   {
     name: "Hotel Nacional de Cuba",
     price: 250,

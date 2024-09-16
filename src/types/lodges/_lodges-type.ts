@@ -4,3 +4,8 @@ export type LodgeType = {
   imageURL: string;
   rate: number;
 };
+
+export type LodgeCategory = {
+  imageThumbnail: string;
+  categoryName: string;
+};
