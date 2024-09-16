@@ -1,20 +1,14 @@
-import {
-  Box,
-  Container,
-  Link,
-  Stack,
-  Typography,
-  Button,
-  IconButton,
-} from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Logo from "../logo";
+import MenuDesktop from "../menu/menu-desktop";
+import MenuMobile from "../menu/menu-mobile";
 
 const Navbar = () => {
   return (
     <Box
       sx={{
         width: "100%",
-        height: "96px",
+        height: {xs: "56px", md: "96px"},
         backgroundColor: "white",
         display: "flex",
         alignItems: "center",
@@ -39,32 +33,8 @@ const Navbar = () => {
           }}
         >
           <Logo />
-          <Stack direction="row" spacing={2} alignItems={"center"}>
-            <Link href="/" underline="none">
-              <Typography variant="subtitle1" color="black" fontWeight={700}>
-                Inicio
-              </Typography>
-            </Link>
-            <Link href="/" underline="none">
-              <Typography variant="subtitle1" color="black" fontWeight={700}>
-                Recomendados
-              </Typography>
-            </Link>
-            <Link href="/" underline="none">
-              <Typography variant="subtitle1" color="black" fontWeight={700}>
-                Sobre nosotros
-              </Typography>
-            </Link>
-            <Link href="/" underline="none">
-              <Typography variant="subtitle1" color="black" fontWeight={700}>
-                Contacto
-              </Typography>
-            </Link>
-            <Button variant="text" color="primary">
-              <Typography variant="subtitle1" fontWeight={700}>USD</Typography>
-            </Button>
-            <IconButton aria-label="">US</IconButton>
-          </Stack>
+          <MenuDesktop />
+          <MenuMobile/>
         </Box>
       </Container>
     </Box>

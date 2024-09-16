@@ -6,8 +6,9 @@ const Logo = () => {
     <Box
       sx={{
         position: "relative",
-        width: "10rem",
+        width: {xs: "8rem", md: "10rem"}, 
         height: "5rem",
+        flexShrink: 0,
       }}
     >
       <Image

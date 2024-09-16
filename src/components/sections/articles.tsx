@@ -7,16 +7,28 @@ const Articles = () => {
       sx={{
         position: "relative",
         maxWidth: "100%",
-        height: "640px",
+        height: { xs: "auto", lg: "640px" },
+        p: { xs: "1rem", md: "0px" },
+        border: { xs: "2px solid #ededed", md: "none" },
         borderRadius: "1rem",
         overflow: "hidden",
-        display: "grid",
+        display: { xs: "flex", md: "grid" },
+        flexDirection: "column",
+        gap: { xs: "2rem", md: "0" },
         "& > *": {
           gridArea: "1 / 1",
         },
       }}
     >
-      <Box sx={{ position: "relative", width: "100%", height: "640px" }}>
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          height: { xs: "292px", md: "640px" },
+          borderRadius: { xs: "0.5rem", md: "0px" },
+          overflow: "hidden",
+        }}
+      >
         <Image
           fill
           objectFit="cover"
@@ -26,20 +38,18 @@ const Articles = () => {
       </Box>
       <Box
         sx={{
-          width: "600px",
+          width: { xs: "100%", md: "600px" },
           height: "278px",
-          p: 3,
-          bgcolor: "rgba(255, 255, 255, 70%)",
-          backdropFilter: "blur(16px)",
+          p: { xs: 0, md: 3 },
+          bgcolor: { xs: "transparent", md: "rgba(255, 255, 255, 70%)" },
+          backdropFilter: { xs: "blur(0px)", md: "blur(7.5px)" },
           borderRadius: 2,
-          // alignSelf: "end",
-          // justifySelf: "start",
-          placeSelf: "end start",
-          inset: "-2rem 2rem",
+          placeSelf: { xs: "center center", md: "end start" },
+          inset: { xs: "0px", md: "-2rem 2rem" },
           position: "relative",
         }}
       >
-        <Stack direction={"column"} spacing={3}>
+        <Stack direction={"column"} spacing={{ xs: 2, md: 3 }}>
           <Stack direction={"column"} spacing={2}>
             <Typography variant="h4">
               10 destinos recomendados en la temporada
@@ -51,12 +61,13 @@ const Articles = () => {
               el paraíso cubano!
             </Typography>
           </Stack>
-          <Box>
+          <Box width={{ xs: "100%", md: "auto" }}>
             <Button
               size="large"
-              fullWidth={false}
+              fullWidth
               sx={{
                 p: 1,
+                maxWidth: { xs: "100%", md: "50%" },
                 bgcolor: "#009FA3",
                 color: "white",
                 textTransform: "none",
