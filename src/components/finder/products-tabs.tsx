@@ -32,6 +32,9 @@ const ProductsTabs = ({ tabValue, setTabValue }: Props) => {
           sx: { backgroundColor: "#005B7F" },
         }}
         variant="scrollable"
+        sx={{
+          pr: 2,
+        }}
       >
         <Tab
           value={"lodge"}
