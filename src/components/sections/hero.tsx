@@ -50,6 +50,8 @@ const Hero = () => {
         <Image
           fill
           objectFit="cover"
+          placeholder="blur"
+          blurDataURL="/assets/images/banner.png"
           src="/assets/images/banner.png"
           alt="Banner"
           style={{}}
