@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const MenuMobile = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
