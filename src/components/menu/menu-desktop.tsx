@@ -1,10 +1,6 @@
 import { Button, IconButton, Link, Stack, Typography } from "@mui/material";
 import React from "react";
 
-interface Props {
-  // Add props here
-}
-
 const MenuDesktop = () => {
   return (
     <Stack
